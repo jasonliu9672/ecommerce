@@ -21,7 +21,7 @@ export default {
     methods:{
         signout(){
             const vm = this;
-            const api = `${process.env.APIPATH}/logout`;
+            const api = `${process.env.APIPATH}/admin/signout`;
             this.$http.post(api).then((response)=>{
                 if(response.data.success){
                     vm.$router.push('/login');
