@@ -84,8 +84,7 @@ export default {
        this.$store.dispatch('login',this.user)
        .then((res)=>{
          if(res.data.success){
-            console.log('hihi')
-             vm.$router.push({path:'/admin/products'});
+             vm.$router.push({path:'/admin'});
          }
        })
      },
@@ -102,14 +101,13 @@ export default {
       //   // })
       // },
       register(){
-        const api = `${process.env.APIPATH}/admin/register`;
         const vm = this;
-        this.$http.post(api,vm.newuser).then((response)=>{
-        console.log(response.data);
-        if(response.data.success){
-            console.log(response.data.message)
-        }
-        })
+        this.$store.dispatch('register',this.user)
+        .then((res)=>{
+         if(res.data.success){
+             vm.$router.push({path:'/admin'});
+         }
+       })
       }
   }
 }
